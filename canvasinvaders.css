@@ -1,0 +1,34 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+h1 {
+    margin: 25px 0 0;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+    font-size: 40px;
+    font-family: "Audiowide", sans-serif;
+}
+canvas {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.buttons {
+    width: 100%;
+    margin-top: 5%;
+    text-align: center;
+}
+button {
+    cursor: pointer;
+    padding: 1% 2%;
+    color: #fff;
+    border: 1px solid #fff;
+    background: transparent;
+}
