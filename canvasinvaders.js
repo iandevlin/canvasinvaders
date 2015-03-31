@@ -245,7 +245,6 @@
             missiles.push(missile);
         },
         keypress = function keypress(e) {
-            console.log(e);
             if (e.keyCode === 39) {
                 moveCannon('right');
             } else if (e.keyCode === 37) {
