@@ -105,33 +105,39 @@
 
                 // Check for cannon collision
                 if (hasCollided(bomb, cannon)) {
+                    alert("BOOM! You dead!");
                     init();
                 }
             });
 
             // Invaders
-            invaders.forEach(function (invader) {
-                context.fillRect(invader.pos.x, invader.pos.y, invader.dim.width, invader.dim.height);
+            if (invaders.length === 0) {
+                alert("VICTORY!");
+                init();
+            } else {
+                invaders.forEach(function (invader) {
+                    context.fillRect(invader.pos.x, invader.pos.y, invader.dim.width, invader.dim.height);
 
-                if (invader.dir === 'right') {
-                    invader.pos.x += invader.movement.x;
-                } else {
-                    invader.pos.x -= invader.movement.x;
-                }
+                    if (invader.dir === 'right') {
+                        invader.pos.x += invader.movement.x;
+                    } else {
+                        invader.pos.x -= invader.movement.x;
+                    }
 
-                if (Math.random() > 0.995) {
-                    bombs.push(createBomb(invader.pos.x, invader.pos.y));
+                    if (Math.random() > 0.995) {
+                        bombs.push(createBomb(invader.pos.x, invader.pos.y));
+                    }
+                });
+                // First invader
+                if (invaders[0].pos.x < 0) {
+                    invaders.map(function (inv) {
+                        inv.dir = 'right';
+                    });
+                } else if (invaders[invaders.length - 1].pos.x + invaders[invaders.length - 1].dim.width > width) {
+                    invaders.map(function (inv) {
+                        inv.dir = 'left';
+                    });
                 }
-            });
-            // First invader
-            if (invaders[0].pos.x < 0) {
-                invaders.map(function (inv) {
-                    inv.dir = 'right';
-                });
-            } else if (invaders[invaders.length - 1].pos.x + invaders[invaders.length - 1].dim.width > width) {
-                invaders.map(function (inv) {
-                    inv.dir = 'left';
-                });
             }
 
             // Barriers
