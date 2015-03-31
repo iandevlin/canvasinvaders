@@ -245,11 +245,12 @@
             missiles.push(missile);
         },
         keypress = function keypress(e) {
+            console.log(e);
             if (e.keyCode === 39) {
                 moveCannon('right');
             } else if (e.keyCode === 37) {
                 moveCannon('left');
-            } else if (e.keyCode === 0) {
+            } else if (e.keyCode === 32) {
                 fireCannon();
             }
         },
@@ -265,7 +266,7 @@
             cannon = createCannon();
             barriers.push(createBarrier(projectileSize * 60));
             createInvaders(6);
-            window.onkeypress = keypress;
+            window.onkeydown = keypress;
         };
 
     init();
